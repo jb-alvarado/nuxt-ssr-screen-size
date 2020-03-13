@@ -26,11 +26,6 @@ npm i github:hugojerez/nuxt-ssr-screen-size
 
 ```
 
-Or you can include it through the browser at the bottom of your page:
-
-```html
-<script src="https://unpkg.com/nuxt-ssr-screen-size/dist/nuxt-ssr-screen-size.min.js"></script>
-```
 
 ### About
 
