@@ -10,7 +10,7 @@ var reactiveComponent = new Vue({
     }
 });
 
-var VueScreenSizeMixin = {
+var NuxtSSRScreenSizeMixin = {
     computed: {
         $vssEvent: function $vssEvent() {
             return reactiveComponent.event
@@ -54,12 +54,12 @@ var VueScreenSizeMixin = {
 }
 
 var install = function (Vue$$1) {
-    Vue$$1.mixin(VueScreenSizeMixin);
+    Vue$$1.mixin(NuxtSSRScreenSizeMixin);
 };
 
 // Note that here we're not only exporting the install function, but
 // also the mixin itself - this is so with can `Vue.use()` or
 // `mixins: [],` it.
-var index = { install: install, VueScreenSizeMixin: VueScreenSizeMixin }
+var index = { install: install, NuxtSSRScreenSizeMixin: NuxtSSRScreenSizeMixin }
 
 export default index;

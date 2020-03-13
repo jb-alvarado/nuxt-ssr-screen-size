@@ -1,7 +1,7 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('vue')) :
     typeof define === 'function' && define.amd ? define(['exports', 'vue'], factory) :
-    (factory((global.VueScreenSize = {}),global.Vue));
+    (factory((global.NuxtSSRScreenSize = {}),global.Vue));
 }(this, (function (exports,Vue) { 'use strict';
 
     Vue = Vue && Vue.hasOwnProperty('default') ? Vue['default'] : Vue;
@@ -16,7 +16,7 @@
         }
     });
 
-    var VueScreenSizeMixin = {
+    var NuxtSSRScreenSizeMixin = {
         computed: {
             $vssEvent: function $vssEvent() {
                 return reactiveComponent.event
@@ -60,13 +60,13 @@
     }
 
     var install = function (Vue$$1) {
-        Vue$$1.mixin(VueScreenSizeMixin);
+        Vue$$1.mixin(NuxtSSRScreenSizeMixin);
     };
 
     // Note that here we're not only exporting the install function, but
     // also the mixin itself - this is so with can `Vue.use()` or
     // `mixins: [],` it.
-    var index = { install: install, VueScreenSizeMixin: VueScreenSizeMixin }
+    var index = { install: install, NuxtSSRScreenSizeMixin: NuxtSSRScreenSizeMixin }
 
     exports.default = index;
 

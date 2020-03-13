@@ -23,15 +23,14 @@ export default {
         }
     },
     methods: {
-        getScreenWidth() {
-
+        getScreenWidth: function getScreenWidth() {
             return typeof window === "undefined" && 1024
             || window.innerWidth
             || document.documentElement.clientWidth
             || document.body.clientWidth
         },
-        getScreenHeight() {
-            return  typeof window === "undefined" && 768
+        getScreenHeight: function getScreenHeight() {
+            return typeof window === "undefined" && 768
             || window.innerHeight
             || document.documentElement.clientHeight
             || document.body.clientHeight
