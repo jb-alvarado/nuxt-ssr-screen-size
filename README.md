@@ -1,37 +1,35 @@
-# vue-screen-size
+# nuxt-ssr-screen-size
 
 Get easy and reactive access to the width and height of your screen.
 
-<p align="left">
-  <a href="https://www.npmjs.com/package/vue-screen-size"><img src="https://img.shields.io/npm/v/vue-screen-size.svg" alt="NPM Version"></a>
-  <a href="https://www.npmjs.com/package/vue-screen-size"><img src="https://img.shields.io/npm/dm/vue-screen-size.svg" alt="NPM Downloads"></a>
-  <a href="http://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
-  <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2Fpromosis%2Fvue-screen-size&text=Check%20out%20vue-screen-size%20on%20GitHub&via=promosis">
-  <img src="https://img.shields.io/twitter/url/https/github.com/promosis/vue-screen-size.svg?style=social" alt="Tweet"></a>
-</p>
+# nuxt-ssr-screen-size and vue-screen-size
+
+It is well known that the screen dimensions cannot be determined from the CLI or SSR, for that same reason when this script is run from a server environment it will be given default width and height values (1024 x 768), and in the In case of being executed from the client, the corresponding dimensions will be shown with their respective reactivity.
+
+Relax and forget about the message "the window is not defined"
+
+![alt text](https://i.imgur.com/Gi0TFBs.png "vue-screen-size")
 
 ### Links
 
-[View demo](https://promosis.github.io/vue-screen-size/)
+[View demo](https://promosis.github.io/nuxt-ssr-screen-size/)
 
-[View on npm](https://www.npmjs.com/package/vue-screen-size)
+[View on npm](https://www.npmjs.com/package/nuxt-ssr-screen-size)
 
-[View on GitHub](https://github.com/promosis/vue-screen-size)
+[View on GitHub](https://github.com/promosis/nuxt-ssr-screen-size)
 
 ### Install
 
 ```bash
 # npm
-npm i vue-screen-size
+npm i github:hugojerez/nuxt-ssr-screen-size
 
-# yarn
-yarn add vue-screen-size
 ```
 
 Or you can include it through the browser at the bottom of your page:
 
 ```html
-<script src="https://unpkg.com/vue-screen-size/dist/vue-screen-size.min.js"></script>
+<script src="https://unpkg.com/nuxt-ssr-screen-size/dist/nuxt-ssr-screen-size.min.js"></script>
 ```
 
 ### About
@@ -47,8 +45,8 @@ There is something to consider - where and how you include this library. There a
 In this usage - your whole app - and every child component - has access to the `$vssWidth`, `$vssHeight`, and `$vssEvent` variables. This is sorta pollutive though, as multiple instances of the mixin are initialized and it's kinda wasteful. The is due to the way Vue mixins are passed down to child components. You can read more about this [here](https://vuejs.org/v2/guide/mixins.html#Global-Mixin). The second example is recommended.
 
 ```javascript
-import VueScreenSize from 'vue-screen-size'
-Vue.use(VueScreenSize)
+import NuxtSSRScreenSize from 'nuxt-ssr-screen-size'
+Vue.use(NuxtSSRScreenSize)
 
 // Access `this.$vssWidth`, `this.$vssHeight`, and `this.$vssEvent` anywhere in your app.
 ```
@@ -58,11 +56,11 @@ Vue.use(VueScreenSize)
 In this usage - the component you install it on will have access to the `$vssWidth`, `$vssHeight`, and `$vssEvent` variables. This may be a bit more restrictive, but it's less wasteful and should give you better performance.
 
 ```javascript
-import VueScreenSize from 'vue-screen-size'
+import NuxtSSRScreenSize from 'nuxt-ssr-screen-size'
 
 export default {
     ...
-    mixins: [VueScreenSize.VueScreenSizeMixin],
+    mixins: [NuxtSSRScreenSize.NuxtSSRScreenSizeMixin],
     ...
 }
 
