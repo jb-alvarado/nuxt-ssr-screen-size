@@ -1,24 +1,24 @@
-import Vue from 'vue'
+import Vue from 'vue';
 
-const reactiveComponent = new Vue({
-    data() {
+var reactiveComponent = new Vue({
+    data: function data() {
         return {
             event: null,
             vssWidth: null,
             vssHeight: null
         }
     }
-})
+});
 
-export default {
+var NuxtSSRScreenSizeMixin = {
     computed: {
-        $vssEvent() {
+        $vssEvent: function $vssEvent() {
             return reactiveComponent.event
         },
-        $vssWidth() {
+        $vssWidth: function $vssWidth() {
             return reactiveComponent.vssWidth || this.getScreenWidth()
         },
-        $vssHeight() {
+        $vssHeight: function $vssHeight() {
             return reactiveComponent.vssHeight || this.getScreenHeight()
         }
     },
@@ -35,20 +35,31 @@ export default {
             || document.documentElement.clientHeight
             || document.body.clientHeight
         },
-        handleResize(event) {
-            reactiveComponent.event = event
-            reactiveComponent.vssWidth = this.getScreenWidth()
-            reactiveComponent.vssHeight = this.getScreenHeight()
+        handleResize: function handleResize(event) {
+            reactiveComponent.event = event;
+            reactiveComponent.vssWidth = this.getScreenWidth();
+            reactiveComponent.vssHeight = this.getScreenHeight();
         },
 
-        $vssDestroyListener() {
-            window.removeEventListener('resize', this.handleResize)
+        $vssDestroyListener: function $vssDestroyListener() {
+            window.removeEventListener('resize', this.handleResize);
         }
     },
-    mounted() {
-        window.addEventListener('resize', this.handleResize)
+    mounted: function mounted() {
+        window.addEventListener('resize', this.handleResize);
     },
-    destroyed() {
-        window.removeEventListener('resize', this.handleResize)
+    destroyed: function destroyed() {
+        window.removeEventListener('resize', this.handleResize);
     }
 }
+
+var install = function (Vue$$1) {
+    Vue$$1.mixin(NuxtSSRScreenSizeMixin);
+};
+
+// Note that here we're not only exporting the install function, but
+// also the mixin itself - this is so with can `Vue.use()` or
+// `mixins: [],` it.
+var index = { install: install, NuxtSSRScreenSizeMixin: NuxtSSRScreenSizeMixin }
+
+export default index;
