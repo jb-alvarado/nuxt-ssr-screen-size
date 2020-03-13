@@ -8,7 +8,7 @@ It is well known that the screen dimensions cannot be determined from the CLI or
 
 Relax and forget about the message "the window is not defined"
 
-![alt text](https://i.imgur.com/Gi0TFBs.png "vue-screen-size")
+![alt text](https://i.imgur.com/Gi0TFBs.png "nuxt-ssr-screen-size")
 
 ### Links
 

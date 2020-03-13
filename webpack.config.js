@@ -6,7 +6,7 @@ module.exports = {
   entry: './example/main.js',
   output: {
     path: path.resolve(__dirname, './docs'),
-    publicPath: (process.env.NODE_ENV === 'development') ? '/' : '/vue-screen-size/',
+    publicPath: (process.env.NODE_ENV === 'development') ? '/' : '/nuxt-ssr-screen-size/',
     filename: 'build.js'
   },
   module: {
@@ -87,7 +87,7 @@ module.exports = {
   devtool: '#eval-source-map',
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'vue-screen-size',
+      title: 'nuxt-ssr-screen-size',
       template: './example/index.html'
     })
   ]

@@ -30,7 +30,7 @@ const config = {
             css: false,
             compileTemplate: true,
         }),
-        // css({ output: 'dist/vue-screen-size.css' }),
+        // css({ output: 'dist/nuxt-ssr-screen-size.css' }),
         buble(),
     ],
     external: ['vue']
