@@ -1,4 +1,4 @@
-import NuxtSSRScreenSizeMixin from './nuxt-ssr-screen-size'
+import NuxtSSRScreenSizeMixin from './nuxt-ssr-screen-size.js'
 
 const install = (Vue) => {
     Vue.mixin(NuxtSSRScreenSizeMixin)
