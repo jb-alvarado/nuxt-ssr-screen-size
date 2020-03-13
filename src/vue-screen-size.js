@@ -24,12 +24,15 @@ export default {
     },
     methods: {
         getScreenWidth() {
-            return window.innerWidth
+
+            return typeof window === "undefined" && 1024
+            || window.innerWidth
             || document.documentElement.clientWidth
             || document.body.clientWidth
         },
         getScreenHeight() {
-            return window.innerHeight
+            return  typeof window === "undefined" && 768
+            || window.innerHeight
             || document.documentElement.clientHeight
             || document.body.clientHeight
         },
